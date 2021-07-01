@@ -21,6 +21,10 @@ Good luck.
 
 To start the boilerplate(s) run either `yarn ts` or `yarn js` from the root of the project.
 
+## Deliverying your code
+
+Please send a .zip file with your entire project to your recruiting coordinator at Guild.
+
 ## Reviewers
 
 Please submit your feedback using [this form](https://docs.google.com/forms/d/e/1FAIpQLSfwQWx31mxsetEq8qMjk4-noop-mCl_QwQf4yl1hJmp4FA8tQ/viewform?usp=sf_link)
