@@ -4,12 +4,17 @@
   display: flex;
   justify-content: space-between;
   height: 80px;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .logo {
-  width: 80px;
+  width: 100px;
+  margin-left: 80px;
 }
 
 .username {
   cursor: pointer;
+  margin-right: 80px;
+  letter-spacing: 0.15px;
+  color: #303030;
 }

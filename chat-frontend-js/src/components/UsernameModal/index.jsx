@@ -9,6 +9,7 @@ import { AppContext } from '../../App/context';
 import { SocketContext } from '../../socket/context';
 
 import styles from './index.module.scss';
+import closeX from './outline_close_black_24dp.png';
 
 export const UsernameModal= () => {
   const { pathname, search } = useLocation();
@@ -18,6 +19,10 @@ export const UsernameModal= () => {
   const { socket } = useContext(SocketContext);
 
   const handleChange = (e) => {
+    console.log('HANDLE CHANGE: ', currentUser?.userId);
+    console.log('VALUE: ', e.target.value);
+    console.log('Current User Id: ', currentUser.userId);
+
     if (currentUser?.userId) {
       setCurrentUser({
         username: e.target.value,
@@ -29,24 +34,40 @@ export const UsernameModal= () => {
         userId: v4(),
       });
     }
-    localStorage.setItem('username', e.target.value);
+  };
+
+  const onCancel = () => {
+    console.log('cancelling');
+    history.push(`${pathname}`);
+    window.location.reload(true);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push(`${pathname}`);
     socket?.emit('username', currentUser);
+    localStorage.setItem('username', document.getElementById('username').value);
+    localStorage.setItem('userId', currentUser.userId);
+  };
+
+  const closeModal = () => {
+    history.push(`${pathname}`);
   };
 
   return (
     <Dialog
+      className={styles.modalDialog}
       aria-label="Username input"
       isOpen={Boolean(parsedParams.isEditingName) || false}
       onDismiss={() => history.push(`${pathname}`)}
     >
+      <img className={styles.closeX} src={closeX} alt='close modal' onClick={closeModal} />
       <form className={styles.formControl} onSubmit={handleSubmit}>
-        <label htmlFor="username">Edit your name</label>
+        <h1 className={styles.modalTitle}>Edit your name</h1>
+        <p className={styles.modalSubTitle}>Edit how your name displays when others chat with you.</p>
+        <label className={styles.editNameLabel} htmlFor="username">Name</label>
         <input
+          className={styles.nameInput}
           aria-label="Edit your name"
           type="text"
           name="username"
@@ -55,7 +76,10 @@ export const UsernameModal= () => {
           value={currentUser ? currentUser.username : ''}
           placeholder="Enter your name"
         />
-        <input type="submit" value="submit" />
+        <div className={styles.modalButtonContainer}>
+          <button onClick={onCancel} className={styles.cancelButton}>Cancel</button>
+          <button type='submit' className={styles.saveButton}>Save</button>
+        </div>
       </form>
     </Dialog>
   );

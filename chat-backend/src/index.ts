@@ -33,7 +33,7 @@ io.on("connection", (socket: Socket) => {
       socketId: socket.id
     }
   } else {
-    users.push({ socketId: socket.id, userId, username  })
+    users.push({ socketId: socket.id, userId, username })
   }
   
   // send most up to date array of users bc new client connected

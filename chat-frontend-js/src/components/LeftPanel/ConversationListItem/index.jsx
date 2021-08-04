@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 export const ConversationListItem = ({ conversationId, username, socketId }) => (
   <li
     className={classnames(styles.container, {
-      [`${styles.online}`]: !!socketId,
+      [`${styles.online}`] : !!socketId,
     })}
   >
     <NavLink

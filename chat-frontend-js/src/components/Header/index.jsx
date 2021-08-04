@@ -14,6 +14,7 @@ export const Header = () => {
     <header className={styles.container}>
       <Link to="/">
         <img
+          alt='guild logo'
           className={styles.logo}
           src="https://recess-images.imgix.net/guild_logos/guild/guild_color.svg"
         />

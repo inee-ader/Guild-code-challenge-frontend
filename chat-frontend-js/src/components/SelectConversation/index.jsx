@@ -4,50 +4,58 @@ import { AppContext } from '../../App/context';
 import { SocketContext } from '../../socket/context';
 import { useFilteredUsers } from '../../utils/useFilteredUsers';
 
+import styles from './index.module.scss';
+
 export const SelectConversation = () => {
   const { socket } = useContext(SocketContext);
   const { currentUser } = useContext(AppContext);
   const [selectedUser, setSelectedUser] = useState();
-  const users = useFilteredUsers();
+  let users = useFilteredUsers();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
     socket?.emit('startConversation', {
       userId: currentUser?.userId,
       recipientId: selectedUser,
     });
+    e.target.reset();
+    setSelectedUser(null);
   };
 
   return (
-    <div>
-      <h2>
-        Select an existing conversation from the left or pick a new user here to
-        start chatting
-      </h2>
-      <form onSubmit={handleFormSubmit}>
-        <label htmlFor="user">Choose a user:</label>
-        <select
-          defaultValue={'select-a-user'}
-          id="user"
-          name="user"
-          onChange={(e) => setSelectedUser(e.target.value)}
-          value={selectedUser}
-        >
-          <option disabled value="select-a-user">
-            Select a user
-          </option>
-          {users.map((u) => (
-            <option key={`user-select-option-${u.userId}`} value={u.userId}>
-              {u.username}
+    <div className={styles.container}>
+      <h1 className={styles.newMessageTitle}>New Message</h1>
+      <p className={styles.newMessageSubTitle}>
+        Select an existing conversation from the left or pick a new user here to start chatting:
+      </p>
+      <form className={styles.form} onSubmit={handleFormSubmit}>
+        <label htmlFor="user">User</label>
+        <br/>
+        <div className={styles.formControls}>
+          <select
+            className={styles.select}
+            defaultValue={'select-a-user'}
+            id="user"
+            name="user"
+            onChange={(e) => setSelectedUser(e.target.value)}
+            value={selectedUser}
+          >
+            <option disabled value="select-a-user">
+              Select one
             </option>
-          ))}
-        </select>
-        <input
-          disabled={!selectedUser}
-          type="submit"
-          value="Start conversation"
-        />
+            {users.map((u) => (
+              <option key={`user-select-option-${u.userId}`} value={u.userId}>
+                {u.username}
+              </option>
+            ))}
+          </select>
+          <input
+            className={styles.startButton}
+            disabled={!selectedUser}
+            type="submit"
+            value="Start conversation"
+          />
+        </div>
       </form>
     </div>
   );

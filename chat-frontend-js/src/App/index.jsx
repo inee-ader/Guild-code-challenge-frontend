@@ -13,8 +13,6 @@ import { SocketContext } from '../socket/context';
 import { AppContext } from './context';
 import styles from './index.module.scss';
 
-
-
 const socketPort = process.env.SOCKET_PORT || 3001;
 
 export const App = () => {
@@ -28,6 +26,8 @@ export const App = () => {
     const socketEndpoint = `http://localhost:${socketPort}`;
     let userId = localStorage.getItem('userId');
     let username = localStorage.getItem('username');
+    // console.log('userId: ', localStorage.getItem('userId'));
+    // console.log('username: ', localStorage.getItem('username'));
     if (!userId || !username) {
       userId = v4();
       username = `user${Date.now()}`;
@@ -65,6 +65,7 @@ export const App = () => {
     }
   }, [socket]);
 
+
   return (
     <AppContext.Provider
       value={{
@@ -76,22 +77,26 @@ export const App = () => {
         conversations,
       }}
     >
-      <SocketContext.Provider value={{ socket }}>
+      <div>
         <Header />
-        <div className={styles.container}>
-          <LeftPanel />
-          <Switch>
-            <Route exact path="/">
-              <SelectConversation />
-            </Route>
-            <Route path="/conversation/:conversationId">
-              <ChatView />
-            </Route>
-            <Route>not found :(</Route>
-          </Switch>
-        </div>
-        <UsernameModal />
-      </SocketContext.Provider>
+      </div>
+      <div className={styles.main} >
+        <SocketContext.Provider value={{ socket }}>
+          <div className={styles.container}>
+            <LeftPanel />
+            <Switch>
+              <Route exact path="/">
+                <SelectConversation />
+              </Route>
+              <Route path="/conversation/:conversationId">
+                <ChatView />
+              </Route>
+              <Route>not found :(</Route>
+            </Switch>
+          </div>
+          <UsernameModal />
+        </SocketContext.Provider>
+      </div>
     </AppContext.Provider>
   );
 };

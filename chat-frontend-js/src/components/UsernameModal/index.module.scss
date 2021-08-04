@@ -1,4 +1,92 @@
+.modalDialog {
+  border-radius: 6px;
+}
+
 .formControl {
   display: flex;
   flex-direction: column;
+}
+
+.closeX {
+  width: 25px;
+  position: relative;
+  float: right;
+  cursor: pointer;
+}
+
+.modalTitle {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.15px;
+  text-align: left;
+  color: #303030;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.modalSubTitle {
+  margin-top: 5px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0.15px;
+  text-align: left;
+  color: #636363;
+  margin-bottom: 32px;
+}
+
+.editNameLabel {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0.15px;
+  text-align: left;
+  color: #303030;
+}
+
+.nameInput {
+  margin-bottom: 80px;
+  font-family: 'Nunito Sans', sans-serif;
+  padding: 8px;
+  font-size: 18px;
+  color: #636363;
+  border-radius: 3px;  
+  outline: none;
+  width: 70%;
+  border: 1px solid #303030;
+}
+
+.modalButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancelButton {
+  padding: 8px;
+  font-family: 'Nunito Sans', sans-serif;
+  letter-spacing: 0.15px;
+  font-size: 18px;
+  padding-left: 24px;
+  padding-right: 24px;
+  color: #007D8C;
+  border: 3px solid #007D8C; 
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.saveButton {
+  padding: 8px;
+  margin-left: 24px;
+  background-color: #007D8C;
+  font-family: 'Nunito Sans', sans-serif;
+  letter-spacing: 0.15px;
+  font-size: 18px;
+  border-radius: 4px;
+  color: white;
+  padding-left: 24px;
+  padding-right: 24px;
+  border: 3px solid #007D8C;
+  cursor: pointer;
 }

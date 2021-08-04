@@ -1,7 +1,11 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  // display: flex;
+  // flex-direction: column;
+  // flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  column-gap: 40px;
 }
 
 .form {

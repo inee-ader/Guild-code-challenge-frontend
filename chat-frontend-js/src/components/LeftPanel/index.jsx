@@ -7,20 +7,19 @@ import { NewMessageButton } from '../NewMessageButton';
 import { ConversationListItem } from './ConversationListItem';
 import styles from './index.module.scss';
 
-export const LeftPanel = () => {
+export const LeftPanel = ({ handleDeleteConversation}) => {
   const { conversations } = useContext(AppContext);
   const filteredUsers = useFilteredUsers();
 
   return (
     <div className={styles.container}>
       <NewMessageButton />
-      <h2>Direct Messages</h2>
-      <ul>
+      <h2 className={styles.directMessagesTitle}>DIRECT MESSAGES</h2>
+      <ul className={styles.messageUl}>
         {conversations.map((c) => {
           const otherUser = filteredUsers.find((u) =>
             c.userIds.includes(u.userId)
           );
-          // null check to appease ts
           if (!otherUser) {
             return null;
           }
