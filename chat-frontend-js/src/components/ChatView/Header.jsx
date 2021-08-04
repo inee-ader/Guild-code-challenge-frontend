@@ -38,8 +38,8 @@ export const ChatViewHeader = () => {
 
   return (
     <div className={styles.header}>
-      <p>{viewedUser.username}</p>
-      <p>{viewedUser.socketId ? 'online' : 'offline'}</p>
+      <p className={styles.username}>{viewedUser.username}</p>
+      <p className={styles.status}>{viewedUser.socketId ? 'online' : 'offline'}</p>
     </div>
   );
 };

@@ -8,7 +8,7 @@ import styles from './index.module.scss';
 
 export const SelectConversation = () => {
   const { socket } = useContext(SocketContext);
-  const { currentUser } = useContext(AppContext);
+  const { currentUser,...values } = useContext(AppContext);
   const [selectedUser, setSelectedUser] = useState();
   let users = useFilteredUsers();
 
@@ -21,7 +21,7 @@ export const SelectConversation = () => {
     e.target.reset();
     setSelectedUser(null);
   };
-
+  console.log(values);
   return (
     <div className={styles.container}>
       <h1 className={styles.newMessageTitle}>New Message</h1>
