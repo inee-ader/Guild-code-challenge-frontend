@@ -1,57 +1,89 @@
 .container {
-  // display: grid;
-  // grid-template-columns: repeat(9, 1fr);
-  // grid-template-rows: repeat(5, 1fr);
-  // column-gap: 40px;
+  width: 1000px;
 }
 
 .form {
-  box-shadow: 0 1px 3px 0 rgba(89, 89, 89, 0.23);
+  border-top: 1px solid #e4e4e4;
   display: flex;
   height: 100px;
   padding: 24px 40px 32px;
 }
+@media(max-width: 768px){
+  .form {
+    width: 100%;
+  }
+}
 
 .header {
   border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 20px;
+}
+
+.headerContent {
+  margin-left: 40px; 
+  text-align: left;
 }
 
 .username {
-
-}
-
-.status {
-  
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 24px;
+  letter-spacing: normal; 
+  line-height: 32px;
+  margin-bottom: 5px;
 }
 
 .input {
   border: 1px solid #303030;
   border-radius: 2px;
-  min-width: 788px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  outline: none;
   padding-left: 12px;
+  width: 80%;
 }
 
 .messageContainer {
-  align-items: center;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.senderInfo {
   display: flex;
+}
 
-  p {
-    margin: 0;
-  }
+.senderName {
+  font-size: 18px;
+  line-height: 10px;
+  margin-bottom: 8px;
+  margin-right: 8px;
+}
 
-  .senderName {
-    font-size: 18px;
-    margin-right: 8px;
-  }
+.sentAt {
+  color: #afacac;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+}
 
-  .sentAt {
-    font-size: 14px;
-  }
+.message {
+  color: #686868;
+  margin: 0;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .messageList {
-  border-bottom: 1px solid #e4e4e4;
+  display: flex;
+  flex-direction: column;
   height: 453.5px;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+  margin-left: 40px;
+  overflow-y: scroll;
+  width: 100%;
+}
+@media(max-width: 768px){
+  .messageList {
+    height: 600px;
+    margin-left: 20px;
+  }
 }
 
 .submit {

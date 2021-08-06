@@ -1,18 +1,19 @@
 .container {
+  display: flex;
   flex-grow: 1;
   height: 58px;
-  display: flex;
 }
 
 .link {
+  align-items: center;
   border-left: 4px solid transparent;
   color: #ffffff;
-  align-items: center;
+  cursor: pointer;
   display: flex;
   height: 100%;
+  padding-left: 56px;
   text-decoration: none;
   width: 100%;
-  cursor: pointer;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
@@ -21,21 +22,8 @@
 
   .name {
     color: inherit;
+    margin-left: 10px;
     text-decoration: none;
-    text-align: center;
-    margin-left: 58px;
-    margin-right: 58px;
+    text-align: center;    
   }
-
-  &.active {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-left-color: #ffffff;
-  }
-}
-
-.online {
-  width: 10px;
-  height: 10px;
-  background-color: #62bd19;
-  border-radius: 50%;
 }

@@ -1,0 +1,50 @@
+.hidden {
+  display: none;
+}
+
+.status {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.15px;
+  line-height: 13px;
+  margin-left: 20px;
+  margin-top: 0;
+}
+
+.statusDot {
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: flex;
+  height: 12px;
+  padding-right: 0;
+  width: 12px;
+}
+
+.online {
+  align-items: center;
+  display: flex;
+  
+  .status {
+    color: #3dad0e;
+  }
+  .statusDot {
+    background-color: #3dad0e;
+    margin-right: 0;
+  }
+}
+
+.offline {
+  align-items: center;
+  display: flex;
+  
+  .status {
+    color: #686868;
+  }
+  .statusDot {
+    background-color: transparent;
+    border: 2px solid #999;
+    height: 10px;
+    margin-right: 0;
+    width: 10px;
+  }
+}

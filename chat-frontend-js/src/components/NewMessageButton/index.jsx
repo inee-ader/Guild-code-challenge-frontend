@@ -7,7 +7,11 @@ export const NewMessageButton = () => (
   <Link to="/">
     <button className={styles.button} type="button">
       New message
-      <img className={styles.buttonIcon} src={editIcon} alt='new message' />
+      <img 
+        alt='new message' 
+        className={styles.buttonIcon} 
+        src={editIcon} 
+      />
     </button>
   </Link>
 );

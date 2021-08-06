@@ -3,10 +3,13 @@
   background-color: #063347;
   flex-direction: column;
   height: 100%;
+  min-width: 351px;
   padding-top: 24px;
-  width: 351px;
-  padding-left: 80px;
-  padding-right: 80px;
+}
+@media(max-width: 768px){
+  .container {
+    width: 20px;
+  }
 }
 
   .directMessagesTitle {
@@ -16,19 +19,22 @@
     font-weight: 600;
     letter-spacing: 2px;
     line-height: 24px;
+    margin-bottom: 36px;
+    margin-left: 80px;
+    margin-right: 80px; 
     margin-top: 48px;
     text-align: left;
   }
 
   .messageUl {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 2px;
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: 'Nunito Sans', sans-serif;
-    letter-spacing: 2px;
-    font-size: 16px;
-    font-weight: bold;
   }
 
 

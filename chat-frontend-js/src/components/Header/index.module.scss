@@ -2,19 +2,20 @@
   align-items: center;
   box-shadow: 0 1px 3px 0 rgba(89, 89, 89, 0.23);
   display: flex;
-  justify-content: space-between;
-  height: 80px;
   font-family: 'Nunito Sans', sans-serif;
+  height: 80px;
+  justify-content: space-between;
+  position: sticky top 0;
 }
 
 .logo {
-  width: 100px;
   margin-left: 80px;
+  width: 100px;
 }
 
 .username {
-  cursor: pointer;
-  margin-right: 80px;
-  letter-spacing: 0.15px;
   color: #303030;
+  cursor: pointer;
+  letter-spacing: 0.15px;
+  margin-right: 80px;
 }

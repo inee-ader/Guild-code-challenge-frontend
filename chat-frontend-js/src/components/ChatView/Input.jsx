@@ -29,8 +29,8 @@ export const ChatViewInput = () => {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <input
-        className={styles.input}
         aria-label="Your message"
+        className={styles.input}
         onChange={handleChange}
         placeholder='Type your message here. Press "Enter" or "Send"'
         value={message}

@@ -1,7 +1,7 @@
 import '@reach/dialog/styles.css';
 import { Dialog } from '@reach/dialog';
 import qs from 'qs';
-import { useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import { v4 } from 'uuid';
 
@@ -11,39 +11,48 @@ import { SocketContext } from '../../socket/context';
 import styles from './index.module.scss';
 import closeX from './outline_close_black_24dp.png';
 
-export const UsernameModal= () => {
+export const UsernameModal = () => {
   const { pathname, search } = useLocation();
   const history = useHistory();
   const parsedParams = qs.parse(search, { ignoreQueryPrefix: true });
   const { currentUser, setCurrentUser } = useContext(AppContext);
   const { socket } = useContext(SocketContext);
 
-  const handleChange = (e) => {
-    console.log('HANDLE CHANGE: ', currentUser?.userId);
-    console.log('VALUE: ', e.target.value);
-    console.log('Current User Id: ', currentUser.userId);
+  const [username, setUsername] = useState('');
 
-    if (currentUser?.userId) {
-      setCurrentUser({
-        username: e.target.value,
-        userId: currentUser.userId,
-      });
-    } else {
-      setCurrentUser({
-        username: e.target.value,
-        userId: v4(),
-      });
-    }
+  useEffect(() => {
+    if(currentUser && currentUser.username !== username && username === '')
+      setUsername(currentUser.username);
+  }, [currentUser]);
+
+  const resetUsername = () => {
+    setUsername(currentUser ? currentUser.username : '');
+  };
+
+  const handleChange = (event) => {
+    setUsername(event.target.value);
   };
 
   const onCancel = () => {
-    console.log('cancelling');
+    resetUsername();
     history.push(`${pathname}`);
-    window.location.reload(true);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (currentUser?.userId) {
+      setCurrentUser({
+        username,
+        userId: currentUser.userId,
+      });
+    } else {
+      setCurrentUser({
+        username,
+        userId: v4(),
+      });
+    };
+
     history.push(`${pathname}`);
     socket?.emit('username', currentUser);
     localStorage.setItem('username', document.getElementById('username').value);
@@ -51,30 +60,36 @@ export const UsernameModal= () => {
   };
 
   const closeModal = () => {
+    resetUsername();
     history.push(`${pathname}`);
   };
 
   return (
     <Dialog
-      className={styles.modalDialog}
       aria-label="Username input"
+      className={styles.modalDialog}
       isOpen={Boolean(parsedParams.isEditingName) || false}
       onDismiss={() => history.push(`${pathname}`)}
     >
-      <img className={styles.closeX} src={closeX} alt='close modal' onClick={closeModal} />
+      <img 
+        alt='close modal' 
+        className={styles.closeX} 
+        src={closeX} 
+        onClick={closeModal} 
+      />
       <form className={styles.formControl} onSubmit={handleSubmit}>
         <h1 className={styles.modalTitle}>Edit your name</h1>
         <p className={styles.modalSubTitle}>Edit how your name displays when others chat with you.</p>
         <label className={styles.editNameLabel} htmlFor="username">Name</label>
         <input
-          className={styles.nameInput}
           aria-label="Edit your name"
-          type="text"
-          name="username"
+          className={styles.nameInput}
           id="username"
+          name="username"
           onChange={handleChange}
-          value={currentUser ? currentUser.username : ''}
           placeholder="Enter your name"
+          type="text"
+          value={username}
         />
         <div className={styles.modalButtonContainer}>
           <button onClick={onCancel} className={styles.cancelButton}>Cancel</button>

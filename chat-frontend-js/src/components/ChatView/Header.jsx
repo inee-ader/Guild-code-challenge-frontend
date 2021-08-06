@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 
 import { AppContext } from '../../App/context';
 import { useFilteredUsers } from '../../utils/useFilteredUsers';
+import { Status } from '../Status';
 
 import styles from './index.module.scss';
 
@@ -14,6 +15,7 @@ export const ChatViewHeader = () => {
   const conversation = conversations.find(
     (c) => c.conversationId === conversationId
   );
+  
   if (!conversation) {
     return (
       <div>
@@ -38,8 +40,10 @@ export const ChatViewHeader = () => {
 
   return (
     <div className={styles.header}>
-      <p className={styles.username}>{viewedUser.username}</p>
-      <p className={styles.status}>{viewedUser.socketId ? 'online' : 'offline'}</p>
+      <div className={styles.headerContent}>
+        <h1 className={styles.username}>{viewedUser.username}</h1>
+        <Status isOnline={viewedUser.isOnline}/>
+      </div>
     </div>
   );
 };

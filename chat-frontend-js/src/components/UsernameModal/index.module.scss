@@ -8,53 +8,53 @@
 }
 
 .closeX {
-  width: 25px;
-  position: relative;
-  float: right;
   cursor: pointer;
+  float: right;
+  position: relative;
+  width: 25px;
 }
 
 .modalTitle {
+  color: #303030;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 24px;
-  line-height: 32px;
   letter-spacing: 0.15px;
-  text-align: left;
-  color: #303030;
   margin-bottom: 0;
   margin-top: 0;
+  line-height: 32px;
+  text-align: left;
 }
 
 .modalSubTitle {
-  margin-top: 5px;
+  color: #636363;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 18px;
-  line-height: 26px;
   letter-spacing: 0.15px;
-  text-align: left;
-  color: #636363;
+  line-height: 26px;
   margin-bottom: 32px;
+  margin-top: 5px;
+  text-align: left;
 }
 
 .editNameLabel {
+  color: #303030;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 18px;
-  line-height: 26px;
   letter-spacing: 0.15px;
+  line-height: 26px;
   text-align: left;
-  color: #303030;
 }
 
 .nameInput {
-  margin-bottom: 80px;
-  font-family: 'Nunito Sans', sans-serif;
-  padding: 8px;
-  font-size: 18px;
-  color: #636363;
-  border-radius: 3px;  
-  outline: none;
-  width: 70%;
   border: 1px solid #303030;
+  border-radius: 3px;  
+  color: #636363;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 18px;
+  margin-bottom: 80px;
+  outline: none;
+  padding: 8px;
+  width: 70%;
 }
 
 .modalButtonContainer {
@@ -63,30 +63,30 @@
 }
 
 .cancelButton {
-  padding: 8px;
-  font-family: 'Nunito Sans', sans-serif;
-  letter-spacing: 0.15px;
-  font-size: 18px;
-  padding-left: 24px;
-  padding-right: 24px;
-  color: #007D8C;
+  background-color: white;
   border: 3px solid #007D8C; 
   border-radius: 4px;
-  background-color: white;
+  color: #007D8C;
   cursor: pointer;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.15px;
+  padding: 8px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .saveButton {
-  padding: 8px;
-  margin-left: 24px;
   background-color: #007D8C;
-  font-family: 'Nunito Sans', sans-serif;
-  letter-spacing: 0.15px;
-  font-size: 18px;
+  border: 3px solid #007D8C;
   border-radius: 4px;
   color: white;
+  cursor: pointer;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.15px;
+  margin-left: 24px;
+  padding: 8px;
   padding-left: 24px;
   padding-right: 24px;
-  border: 3px solid #007D8C;
-  cursor: pointer;
 }

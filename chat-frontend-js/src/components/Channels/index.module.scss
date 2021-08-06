@@ -1,0 +1,34 @@
+.listTitle {
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 24px;
+  margin-bottom: 36px;
+  margin-left: 80px;
+  margin-right: 80px; 
+  text-align: left;
+}
+
+.channelUl {
+  align-items: center;
+  border-left: 4px solid transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  height: 100%;
+  list-style: none;
+  margin-bottom: 48px;
+  width: 100%;
+}
+
+.channelLi {
+  color: inherit;
+  font-size: 18px;
+  margin-bottom: 36px;
+  margin-left: 36px;
+  margin-right: 58px;
+  text-decoration: none;
+  text-align: left;
+}

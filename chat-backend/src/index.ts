@@ -62,7 +62,6 @@ io.on("connection", (socket: Socket) => {
       userId,
       username,
     }
-
     // emit changed username
     io.sockets.emit('users', users)
   })

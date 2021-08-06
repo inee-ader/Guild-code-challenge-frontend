@@ -17,6 +17,8 @@ export const ChatViewMessageList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log('STARFISH: ', messages);
+
   const filteredMessages = messages.filter(
     (m) => m.conversationId === conversationId
   );
